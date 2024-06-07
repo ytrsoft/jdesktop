@@ -1,0 +1,66 @@
+# Maven-specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# Avoid ignoring maven-wrapper.jar file (.jar files should generally be excluded)
+!/.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ IDEA-specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
+.idea/
+
+# User-specific files
+*.log
+*.swp
+*.swo
+*~
+
+# macOS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux-specific files
+*~
+
+# Other
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
