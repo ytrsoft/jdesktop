@@ -1,7 +1,9 @@
 package com.ytrsoft;
 
-public class Startup {
+import com.ytrsoft.base.Application;
+
+public class Startup extends Application {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        launch(Startup.class);
     }
 }
