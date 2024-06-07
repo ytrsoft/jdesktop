@@ -19,7 +19,6 @@ buildNumber.properties
 *.ipr
 out/
 .idea_modules/
-.idea/
 
 # User-specific files
 *.log
