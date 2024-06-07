@@ -1,5 +1,8 @@
 package com.ytrsoft.base;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.ytrsoft.util.Tools;
 
 import javax.swing.*;
@@ -27,8 +30,8 @@ public abstract class Application extends JFrame {
     protected static void launch(Class<? extends Application> clazz) {
         SwingUtilities.invokeLater(() -> {
             try {
-                Constructor<? extends Application> constructor = clazz.getDeclaredConstructor();
-                Application app = constructor.newInstance();
+                FlatDarculaLaf.setup();
+                Application app = clazz.getDeclaredConstructor().newInstance();
                 app.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
