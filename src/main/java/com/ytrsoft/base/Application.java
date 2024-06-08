@@ -1,10 +1,7 @@
 package com.ytrsoft.base;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
-import com.ytrsoft.util.Tools;
 import org.jdesktop.swingx.JXFrame;
-import org.jdesktop.swingx.plaf.LoginPaneAddon;
-import org.jdesktop.swingx.plaf.LoginPaneUI;
 
 import javax.swing.*;
 import java.awt.*;

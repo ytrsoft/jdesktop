@@ -1,4 +1,4 @@
-package com.ytrsoft.util;
+package com.ytrsoft.base;
 
 import java.awt.*;
 import java.net.URL;
