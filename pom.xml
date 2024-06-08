@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ytrsoft</groupId>
@@ -26,6 +26,39 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.ytrsoft.Startup</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.ytrsoft.Startup</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>com.akathist.maven.plugins.launch4j</groupId>
         <artifactId>launch4j-maven-plugin</artifactId>
         <version>2.1.1</version>
@@ -39,13 +72,12 @@
             <configuration>
               <headerType>gui</headerType>
               <outfile>${project.build.directory}/startup.exe</outfile>
-              <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
+              <jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
               <icon>${project.basedir}/src/main/resources/app.ico</icon>
               <errTitle>Error Title</errTitle>
               <classPath>
                 <mainClass>com.ytrsoft.Startup</mainClass>
-                <addDependencies>true</addDependencies>
-                <preCp>anything</preCp>
+                <addDependencies>false</addDependencies>
               </classPath>
               <jre>
                 <minVersion>1.8.0</minVersion>

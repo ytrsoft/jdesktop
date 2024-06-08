@@ -1,13 +1,10 @@
 package com.ytrsoft.base;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.ytrsoft.util.Tools;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Constructor;
 
 public abstract class Application extends JFrame {
 
