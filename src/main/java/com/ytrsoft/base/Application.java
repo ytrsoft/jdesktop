@@ -2,19 +2,24 @@ package com.ytrsoft.base;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.ytrsoft.util.Tools;
+import org.jdesktop.swingx.JXFrame;
+import org.jdesktop.swingx.plaf.LoginPaneAddon;
+import org.jdesktop.swingx.plaf.LoginPaneUI;
 
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class Application extends JFrame {
+public abstract class Application extends JXFrame {
 
     public Application() {
-        setTitle("App");
+        super("JDesktop", false);
         setSize(getDefaultSize());
         setIconImage(Tools.getLogo());
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        initialized();
     }
+
+    protected abstract void initialized();
 
     public Dimension getDefaultSize() {
         double scale = 0.5;
