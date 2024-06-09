@@ -1,43 +1,41 @@
 package com.ytrsoft.demo;
 
+import com.ytrsoft.theme.Theme;
 import com.ytrsoft.theme.ThemeType;
 import com.ytrsoft.ui.button.DButton;
+import com.ytrsoft.ui.flex.FlexLayout;
 import com.ytrsoft.ui.view.BView;
+import org.jdesktop.swingx.JXButton;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class FlexView extends BView {
 
     public FlexView() {
-        setLayout(null);
-
-        DButton success = new DButton("SUCCESS");
-        success.setType(ThemeType.SUCCESS);
-        success.setBounds(15, 15, 120, 48);
-        add(success);
-
-        DButton primary = new DButton("PRIMARY");
-        primary.setType(ThemeType.PRIMARY);
-        primary.setBounds(15, 78, 120, 48);
-        add(primary);
-
-        DButton info = new DButton("INFO");
-        info.setType(ThemeType.INFO);
-        info.setBounds(15, 141, 120, 48);
-        add(info);
-
-        DButton warning = new DButton("WARNING");
-        warning.setType(ThemeType.WARNING);
-        warning.setBounds(15, 204, 120, 48);
-        add(warning);
-
-        DButton danger = new DButton("DANGER");
-        danger.setType(ThemeType.DANGER);
-        danger.setBounds(15, 267, 120, 48);
-        add(danger);
-
-        DButton _default = new DButton("DEFAULT");
-        _default.setType(ThemeType.DEFAULT);
-        _default.setBounds(15, 331, 120, 48);
-        add(_default);
+        FlexLayout flex = new FlexLayout();
+        flex.setDirection(FlexLayout.ROW);
+        setLayout(flex);
+        BView view1 = new BView();
+        view1.setBackground(Theme.PRIMARY);
+        BView view2 = new BView();
+        view1.setBackground(Theme.SUCCESS);
+        BView view3 = new BView();
+        view1.setBackground(Theme.INFO);
+        BView view4 = new BView();
+        view1.setBackground(Theme.WARNING);
+        BView view5 = new BView();
+        view1.setBackground(Theme.DANGER);
+        add(view1);
+        add(view2);
+        add(view3);
+        add(view4);
+        add(view5);
+        flex.setGrow(0, 1);
+        flex.setGrow(1, 2);
+        flex.setGrow(2, 3);
+        flex.setGrow(3, 4);
+        flex.setGrow(4, 5);
     }
 
 

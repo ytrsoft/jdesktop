@@ -7,7 +7,6 @@ public class FlexItem {
     private int shrink = 1;
     private int grow = 1;
     private int alignSelf = FlexAdapter.STRETCH;
-    private int gap = 0;
     private int basis = -1;
 
     private String name;
@@ -50,14 +49,6 @@ public class FlexItem {
 
     public void setAlignSelf(int alignSelf) {
         this.alignSelf = alignSelf;
-    }
-
-    public int getGap() {
-        return gap;
-    }
-
-    public void setGap(int gap) {
-        this.gap = gap;
     }
 
     public int getBasis() {

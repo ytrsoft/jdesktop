@@ -4,6 +4,8 @@ public interface Flexible {
 
     void setWrap(int value);
 
+    void setGap(int value);
+
     void setDirection(int value);
 
     void setAlignContent(int value);
@@ -15,8 +17,6 @@ public interface Flexible {
     void setGrow(int index, int value);
 
     void setAlignSelf(int index, int value);
-
-    void setGap(int index, int value);
 
     void setShrink(int index, int value);
 

@@ -29,6 +29,7 @@ public abstract class FlexAdapter implements LayoutManager2, Flexible {
     protected int alignContent = START;
     protected int direction = ROW;
     protected int wrap = NOWRAP;
+    protected int gap = 0;
     protected int justifyContent = START;
 
     private FlexItem getFlexItem(int index) {
@@ -57,8 +58,8 @@ public abstract class FlexAdapter implements LayoutManager2, Flexible {
 
 
     @Override
-    public void setGap(int index, int value) {
-        getFlexItem(index).setGap(value);
+    public void setGap(int value) {
+        this.gap = value;
     }
 
     @Override
