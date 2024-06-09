@@ -37,7 +37,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.ytrsoft.Startup</mainClass>
+              <mainClass>com.ytrsoft.JDesktop</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -56,7 +56,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.ytrsoft.Startup</mainClass>
+              <mainClass>com.ytrsoft.JDesktop</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
@@ -88,7 +88,7 @@
                 <argument>--main-jar</argument>
                 <argument>${project.build.finalName}-jar-with-dependencies.jar</argument>
                 <argument>--main-class</argument>
-                <argument>com.ytrsoft.Startup</argument>
+                <argument>com.ytrsoft.JDesktop</argument>
                 <argument>--icon</argument>
                 <argument>${project.basedir}/src/main/resources/app.icns</argument>
                 <argument>--java-options</argument>
