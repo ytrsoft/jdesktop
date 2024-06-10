@@ -2,8 +2,8 @@ package com.ytrsoft.components.view;
 
 import org.jdesktop.swingx.JXPanel;
 
-public class JDView extends JXPanel {
+import java.awt.*;
 
-    public JDView() {}
+public class JDView extends JXPanel {
 
 }

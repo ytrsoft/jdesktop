@@ -4,6 +4,7 @@ import com.ytrsoft.base.Application;
 import com.ytrsoft.components.tabs.JDTabs;
 import com.ytrsoft.components.view.JDView;
 import com.ytrsoft.demo.ButtonDemo;
+import com.ytrsoft.demo.IconDemo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,9 @@ public class JDesktop extends Application {
 
     private Map<String, JDView> tabs() {
         Map<String, JDView> maps = new HashMap<>();
+        IconDemo iconDemo = new IconDemo();
         ButtonDemo buttonDemo = new ButtonDemo();
+        maps.put("图标", iconDemo);
         maps.put("按钮", buttonDemo);
         return maps;
     }

@@ -2,7 +2,6 @@ package com.ytrsoft.demo;
 
 import com.ytrsoft.components.button.JDButton;
 import com.ytrsoft.components.icon.JDIcon;
-import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.view.JDText;
 import com.ytrsoft.components.view.JDView;
 import com.ytrsoft.base.UseColor;
@@ -38,7 +37,7 @@ public class ButtonDemo extends JDView {
                         group[j].setPlain(true);
                     }
                     group[j].setType(UseColor.Type.values()[i]);
-                    group[j].setIcon(JDIcon.ANGLE_RIGHT);
+                    group[j].setIcon(JDIcon.USER_CIRCLE_O);
                 }
                 buttonView.add(group[j]);
             }
