@@ -28,7 +28,7 @@ public class ButtonDemo extends JDView {
             JDButton[] group = new JDButton[3];
             for (int j = 0; j < group.length; j++) {
                 group[j] = new JDButton("BUTTON");
-                group[j].setPreferredSize(new Dimension(100, 32));
+                group[j].setPreferredSize(new Dimension(140, 32));
                 if (j == 2) {
                     group[j].setDisabled(true);
                 } else {
@@ -36,6 +36,7 @@ public class ButtonDemo extends JDView {
                         group[j].setPlain(true);
                     }
                     group[j].setType(UseColor.Type.values()[i]);
+                    group[j].setLoading(true);
                 }
                 buttonView.add(group[j]);
             }

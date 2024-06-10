@@ -56,6 +56,22 @@ public class UIColor {
         return colors;
     }
 
+    public Color getColor() {
+        switch (type) {
+            case PRIMARY:
+                return UseColor.PRIMARY;
+            case SUCCESS:
+                return UseColor.SUCCESS;
+            case WARNING:
+                return UseColor.WARNING;
+            case DANGER:
+                return UseColor.DANGER;
+            case INFO:
+                return UseColor.INFO;
+        }
+        return UseColor.PRIMARY;
+    }
+
     public Color getDisabledColor() {
         return UseColor.DISABLED_TEXT;
     }
