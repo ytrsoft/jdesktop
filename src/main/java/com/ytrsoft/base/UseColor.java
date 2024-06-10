@@ -1,8 +1,8 @@
-package com.ytrsoft.util;
+package com.ytrsoft.base;
 
 import java.awt.*;
 
-public final class UIColor {
+public final class UseColor {
 
     public enum Type {
         DEFAULT,
@@ -55,7 +55,7 @@ public final class UIColor {
 
     public static final Color DISABLED_TEXT = new Color(0x909090);
 
-    private UIColor() {
+    private UseColor() {
         throw new UnsupportedOperationException();
     }
     

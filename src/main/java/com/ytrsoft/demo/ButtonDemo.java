@@ -3,7 +3,7 @@ package com.ytrsoft.demo;
 import com.ytrsoft.components.button.JDButton;
 import com.ytrsoft.components.view.JDText;
 import com.ytrsoft.components.view.JDView;
-import com.ytrsoft.util.UIColor;
+import com.ytrsoft.base.UseColor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ import java.awt.*;
 public class ButtonDemo extends JDView {
 
     public ButtonDemo() {
-        int rows = UIColor.Type.values().length;
+        int rows = UseColor.Type.values().length;
         JDView mainView = new JDView();
         mainView.setLayout(new BoxLayout(mainView, BoxLayout.Y_AXIS));
 
@@ -20,7 +20,7 @@ public class ButtonDemo extends JDView {
             outerView.setLayout(new BoxLayout(outerView, BoxLayout.Y_AXIS));
             JDView textView = new JDView();
             textView.setLayout(new FlowLayout(FlowLayout.LEFT));
-            String name = UIColor.Type.values()[i].name();
+            String name = UseColor.Type.values()[i].name();
             JDText label = new JDText(name);
             textView.add(label);
             JDView buttonView = new JDView();
@@ -35,7 +35,7 @@ public class ButtonDemo extends JDView {
                     if (j == 1) {
                         group[j].setPlain(true);
                     }
-                    group[j].setType(UIColor.Type.values()[i]);
+                    group[j].setType(UseColor.Type.values()[i]);
                 }
                 buttonView.add(group[j]);
             }

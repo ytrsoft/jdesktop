@@ -1,20 +1,22 @@
 package com.ytrsoft.components.button;
 
+import com.ytrsoft.base.UIColor;
 import com.ytrsoft.components.border.JDButtonBorder;
 import com.ytrsoft.event.MouseState;
-import com.ytrsoft.util.UIColor;
+import com.ytrsoft.base.UseColor;
 import org.jdesktop.swingx.JXButton;
 
 import java.awt.*;
+import java.util.List;
 
 public class JDButton extends JXButton implements MouseState.Event {
 
+    private final UIColor uiColor;
     private final MouseState mouseState;
     private final JDButtonBorder border;
 
-    private boolean isPlain;
+    private boolean isLoading;
     private boolean isDisabled;
-    private UIColor.Type type = UIColor.Type.DEFAULT;
 
     public JDButton(String name) {
         super(name);
@@ -22,60 +24,52 @@ public class JDButton extends JXButton implements MouseState.Event {
         addMouseListener(mouseState);
         mouseState.setOnEvent(this);
         border = new JDButtonBorder();
+        uiColor = new UIColor();
         setBorder(border);
-        setButtonStyle();
+        applyStyle();
     }
 
     public void setBorderColor(Color color) {
         border.setBorderColor(color);
     }
 
-    private void setButtonStyle() {
-        JDButtonStyles styles = JDButtonStyles.getStyles(type, isPlain);
-        setForeground(styles.getForeground());
-        setBackground(styles.getBackground());
-        setBorderColor(styles.getBorder());
-        disabledStyle();
+    private void applyStyle() {
+        List<Color> colors = uiColor.createColors();
+        setForeground(colors.get(0));
+        setBackground(colors.get(1));
+        setBorderColor(colors.get(2));
+        applyDisabledStyle();
     }
 
-    private void disabledStyle() {
+    private void applyDisabledStyle() {
         if (isDisabled) {
             setEnabled(false);
-            setBorderColor(UIColor.DISABLED_TEXT);
+            setBorderColor(UseColor.DISABLED_TEXT);
         } else {
             setEnabled(true);
         }
     }
 
-    private void setHoverStyle() {
-        JDButtonStyles styles = JDButtonStyles.getStyles(type, isPlain);
-        setForeground(styles.getForeground());
-        setBackground(styles.getHover());
-        setBorderColor(styles.getBorder());
-        setDefault();
+    private void applySelectedStyle() {
+        List<Color> colors = uiColor.createColors();
+        setForeground(colors.get(0));
+        setBackground(colors.get(3));
+        setBorderColor(colors.get(2));
+        fixedDefault();
     }
 
-    private void setActiveStyle() {
-        JDButtonStyles styles = JDButtonStyles.getStyles(type, isPlain);
-        setForeground(styles.getForeground());
-        setBackground(styles.getActive());
-        setBorderColor(styles.getBorder());
-        setDefault();
-    }
-
-    private void setDefault() {
-        if (type == UIColor.Type.DEFAULT) {
-            setForeground(UIColor.PRIMARY);
-            if (isPlain) {
-                setBorderColor(UIColor.PRIMARY);
+    private void fixedDefault() {
+        if (getType() == UseColor.Type.DEFAULT) {
+            setForeground(UseColor.PRIMARY);
+            if (isPlain()) {
+                setBorderColor(UseColor.PRIMARY);
             } else {
-                setBorderColor(UIColor.PRIMARY_PLAIN_BORDER);
+                setBorderColor(UseColor.PRIMARY_PLAIN_BORDER);
             }
         } else {
-            setForeground(UIColor.WHITE);
+            setForeground(UseColor.WHITE);
             setBorderColor(getBackground());
         }
-        disabledStyle();
     }
 
     @Override
@@ -83,27 +77,24 @@ public class JDButton extends JXButton implements MouseState.Event {
         if (isDisabled) {
             return;
         }
-
         switch (eventType) {
             case HOVER:
-                setHoverStyle();
-                break;
             case ACTIVE:
-                setActiveStyle();
+                applySelectedStyle();
                 break;
             case NORMAL:
-                setButtonStyle();
+                applyStyle();
                 break;
         }
     }
 
     public boolean isPlain() {
-        return isPlain;
+        return uiColor.isPlain();
     }
 
     public void setPlain(boolean plain) {
-        isPlain = plain;
-        setButtonStyle();
+        uiColor.setPlain(plain);
+        applyStyle();
     }
 
     public boolean isDisabled() {
@@ -112,19 +103,20 @@ public class JDButton extends JXButton implements MouseState.Event {
 
     public void setDisabled(boolean disabled) {
         isDisabled = disabled;
-        setButtonStyle();
+        applyDisabledStyle();
     }
 
-    public UIColor.Type getType() {
-        return type;
+    public void setType(UseColor.Type type) {
+        uiColor.setType(type);
+        applyStyle();
     }
 
-    public void setType(UIColor.Type type) {
-        this.type = type;
-        setButtonStyle();
+    public UseColor.Type getType() {
+        return uiColor.getType();
     }
 
     public MouseState getMouseState() {
         return mouseState;
     }
+
 }
