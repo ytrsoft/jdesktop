@@ -51,6 +51,7 @@ public final class JDIconFont {
     }
     
     public static Icon buildIcon(IconCode iconCode, float size, Color color) {
+        if (iconCode == null) return null;
         return new ImageIcon(buildImage(iconCode, size, color));
     }
 
@@ -77,11 +78,11 @@ public final class JDIconFont {
     }
 
     private static Font buildFont(IconCode iconCode, float size) {
+        if (iconCode == null) return null;
         Font font = JDIconFont.buildFont(iconCode.getFontFamily());
-        if (font != null) {
-            font.deriveFont(size);
-        }
-        return font;
+        if (font == null) return null;
+        return font.deriveFont(size);
     }
+
 
 }

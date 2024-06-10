@@ -23,6 +23,7 @@ public class JDButton extends JXButton implements MouseState.Event {
 
     private boolean isLoading;
     private boolean isDisabled;
+    private JDIcon icon;
 
     public JDButton(String name) {
         super(name);
@@ -56,11 +57,17 @@ public class JDButton extends JXButton implements MouseState.Event {
         }
     }
 
+    private void applyIcon(Color color) {
+        float size2D = getFont().getSize2D();
+        setIcon(JDIconFont.buildIcon(icon, size2D, color));
+    }
+
     private void applyStyle() {
         List<Color> colors = uiColor.createColors();
         setForeground(colors.get(0));
         setBackground(colors.get(1));
         setBorderColor(colors.get(2));
+        applyIcon(getForeground());
         applyDisabledStyle();
     }
 
@@ -97,6 +104,7 @@ public class JDButton extends JXButton implements MouseState.Event {
             setForeground(UseColor.WHITE);
             setBorderColor(getBackground());
         }
+        applyIcon(getForeground());
     }
 
     @Override
@@ -165,8 +173,8 @@ public class JDButton extends JXButton implements MouseState.Event {
     }
 
     public void setIcon(JDIcon icon) {
-        float size2D = getFont().getSize2D();
-        setIcon(JDIconFont.buildIcon(icon, size2D, getForeground()));
+        this.icon = icon;
+        applyStyle();
     }
 
     public MouseState getMouseState() {

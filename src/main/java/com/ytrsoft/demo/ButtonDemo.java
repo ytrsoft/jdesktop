@@ -38,7 +38,7 @@ public class ButtonDemo extends JDView {
                         group[j].setPlain(true);
                     }
                     group[j].setType(UseColor.Type.values()[i]);
-                    group[j].setIcon(JDIcon.USER);
+                    group[j].setIcon(JDIcon.ANGLE_RIGHT);
                 }
                 buttonView.add(group[j]);
             }
