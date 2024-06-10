@@ -1,6 +1,9 @@
 package com.ytrsoft.base;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import com.ytrsoft.components.icon.IconFont;
+import com.ytrsoft.components.icon.JDIcon;
+import com.ytrsoft.components.icon.JDIconFont;
 import org.jdesktop.swingx.JXFrame;
 
 import javax.swing.*;
@@ -63,6 +66,7 @@ public class Application extends JXFrame {
         SwingUtilities.invokeLater(() -> {
             try {
                 FlatDarkLaf.setup();
+                JDIconFont.register(JDIcon.getIconFont());
                 Application app = clz.getDeclaredConstructor().newInstance();
                 app.init();
                 app.start();

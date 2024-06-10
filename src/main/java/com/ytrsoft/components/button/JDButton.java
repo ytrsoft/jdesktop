@@ -2,6 +2,8 @@ package com.ytrsoft.components.button;
 
 import com.ytrsoft.base.UIColor;
 import com.ytrsoft.components.border.JDButtonBorder;
+import com.ytrsoft.components.icon.JDIcon;
+import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.icon.LoadingIcon;
 import com.ytrsoft.event.MouseState;
 import com.ytrsoft.base.UseColor;
@@ -160,6 +162,11 @@ public class JDButton extends JXButton implements MouseState.Event {
             setIcon(originalIcon);
         }
         applyLoadingStyle();
+    }
+
+    public void setIcon(JDIcon icon) {
+        float size2D = getFont().getSize2D();
+        setIcon(JDIconFont.buildIcon(icon, size2D, getForeground()));
     }
 
     public MouseState getMouseState() {

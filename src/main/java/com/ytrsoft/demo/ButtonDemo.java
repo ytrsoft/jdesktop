@@ -1,6 +1,8 @@
 package com.ytrsoft.demo;
 
 import com.ytrsoft.components.button.JDButton;
+import com.ytrsoft.components.icon.JDIcon;
+import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.view.JDText;
 import com.ytrsoft.components.view.JDView;
 import com.ytrsoft.base.UseColor;
@@ -27,8 +29,8 @@ public class ButtonDemo extends JDView {
             buttonView.setLayout(new FlowLayout(FlowLayout.LEFT));
             JDButton[] group = new JDButton[3];
             for (int j = 0; j < group.length; j++) {
-                group[j] = new JDButton("BUTTON");
-                group[j].setPreferredSize(new Dimension(140, 32));
+                group[j] = new JDButton("按钮");
+                group[j].setPreferredSize(new Dimension(100, 32));
                 if (j == 2) {
                     group[j].setDisabled(true);
                 } else {
@@ -36,7 +38,7 @@ public class ButtonDemo extends JDView {
                         group[j].setPlain(true);
                     }
                     group[j].setType(UseColor.Type.values()[i]);
-                    group[j].setLoading(true);
+                    group[j].setIcon(JDIcon.USER);
                 }
                 buttonView.add(group[j]);
             }
