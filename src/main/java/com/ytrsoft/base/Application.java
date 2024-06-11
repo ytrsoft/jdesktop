@@ -43,14 +43,14 @@ public class Application extends JFrame implements BarMenuListener {
     private void createBarMenu() {
         JDBarMenu menu = new JDBarMenu("Theme");
         menu.setOnBarMenuListener(this);
-        menu.from(ThemeMode.DARK.keys());
+        menu.from(ThemeMode.keys());
         setMenuBar(menu);
     }
 
     private void createTrayMenu() {
         JDTrayMenu themeMenu = new JDTrayMenu("Theme");
         themeMenu.setOnBarMenuListener(this);
-        themeMenu.from(ThemeMode.DARK.keys());
+        themeMenu.from(ThemeMode.keys());
         themeMenu.setTitle(getTitle());
         themeMenu.setIcon(getLogo());
         themeMenu.setup();
