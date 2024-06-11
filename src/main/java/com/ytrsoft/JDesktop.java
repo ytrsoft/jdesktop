@@ -2,7 +2,6 @@ package com.ytrsoft;
 
 import com.ytrsoft.base.Application;
 import com.ytrsoft.components.tabs.JDTabs;
-import com.ytrsoft.components.view.JDView;
 import com.ytrsoft.demo.ButtonDemo;
 import com.ytrsoft.demo.IconDemo;
 
