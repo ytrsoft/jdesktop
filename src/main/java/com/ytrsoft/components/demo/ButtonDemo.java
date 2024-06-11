@@ -1,5 +1,7 @@
 package com.ytrsoft.components.demo;
 
+import com.ytrsoft.components.button.JDButton;
+import com.ytrsoft.components.icon.JDIcon;
 import com.ytrsoft.components.tabs.JDView;
 import com.ytrsoft.util.Settings;
 
@@ -10,14 +12,15 @@ import java.awt.event.ActionListener;
 
 public class ButtonDemo extends JDView implements ActionListener {
 
-    private static final int SIZE = 10;
+    private static final int SIZE = 8;
     private static final int GAP = Settings.SPACE;
 
     public ButtonDemo() {
         setLayout(new GridLayout(SIZE, SIZE, GAP, GAP));
         for (int i = 1; i <= SIZE * SIZE; i++) {
-            JButton button = new JButton("按钮");
+            JDButton button = new JDButton("COFFEE");
             button.setActionCommand(String.valueOf(i));
+            button.setIcon(JDIcon.COFFEE);
             button.addActionListener(this);
             add(button);
         }

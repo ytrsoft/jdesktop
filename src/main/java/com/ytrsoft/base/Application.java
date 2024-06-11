@@ -4,6 +4,8 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.util.SystemInfo;
+import com.ytrsoft.components.icon.JDIcon;
+import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.menu.BarMenuListener;
 import com.ytrsoft.components.menu.JDBarMenu;
 import com.ytrsoft.components.menu.JDTrayMenu;
@@ -31,7 +33,6 @@ public class Application extends JFrame implements BarMenuListener {
     public void start() {};
 
     public void stop() {};
-
 
     private void createMenu() {
         if (SystemInfo.isWindows) {
@@ -70,6 +71,7 @@ public class Application extends JFrame implements BarMenuListener {
     }
 
     private static void prepareUI() {
+        JDIconFont.register(JDIcon.getIconFont());
         URL url = ResKit.getResource("/themes/");
         FlatLaf.registerCustomDefaultsSource(url);
         FlatDarkLaf.setup();
