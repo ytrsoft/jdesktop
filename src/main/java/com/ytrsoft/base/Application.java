@@ -7,7 +7,7 @@ import com.formdev.flatlaf.util.SystemInfo;
 import com.ytrsoft.components.menu.BarMenuListener;
 import com.ytrsoft.components.menu.JDBarMenu;
 import com.ytrsoft.components.menu.JDTrayMenu;
-import com.ytrsoft.util.ResourceUtils;
+import com.ytrsoft.util.ResKit;
 import org.apache.commons.lang3.reflect.ConstructorUtils;
 
 import javax.swing.*;
@@ -31,6 +31,7 @@ public class Application extends JFrame implements BarMenuListener {
     public void start() {};
 
     public void stop() {};
+
 
     private void createMenu() {
         if (SystemInfo.isWindows) {
@@ -64,12 +65,12 @@ public class Application extends JFrame implements BarMenuListener {
     }
 
     public Image getLogo() {
-        URL url = ResourceUtils.getResource("/logo.png");
+        URL url = ResKit.getResource("/logo.png");
         return TOOLKIT.getImage(url);
     }
 
     private static void prepareUI() {
-        URL url = ResourceUtils.getResource("/themes/");
+        URL url = ResKit.getResource("/themes/");
         FlatLaf.registerCustomDefaultsSource(url);
         FlatDarkLaf.setup();
     }
