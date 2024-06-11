@@ -3,13 +3,14 @@ package com.ytrsoft.base;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.util.SystemInfo;
 import com.ytrsoft.components.icon.JDIcon;
 import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.menu.JDMenuBar;
 import com.ytrsoft.components.menu.JDTrayMenu;
 import com.ytrsoft.components.menu.MenuListener;
+import com.ytrsoft.components.view.JDView;
 import com.ytrsoft.util.ResUtils;
-import com.ytrsoft.util.SysUtils;
 import org.jdesktop.swingx.JXFrame;
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class Application extends JXFrame implements MenuListener {
 
     private static final double SIZE_SCALE = 0.5;
     private static final String[] THEME_MODE = new String[]{"Dark", "Light"};
+    private JDView rootView;
 
     static class WindowClosing extends WindowAdapter {
 
@@ -46,8 +48,8 @@ public class Application extends JXFrame implements MenuListener {
         setLocationRelativeTo(null);
         createTrayOrMenu();
         addWindowListener(new WindowClosing(this));
-        setDefaultLookAndFeelDecorated(true);
-        setDefaultLookAndFeelDecorated(true);
+        rootView = new JDView();
+        rootView.setLayout(new BorderLayout());
     }
 
     @Override
@@ -65,8 +67,7 @@ public class Application extends JXFrame implements MenuListener {
     }
 
     private void createTrayOrMenu() {
-        boolean isWin = SysUtils.isWin();
-        if (!isWin) {
+        if (SystemInfo.isMacOS) {
             createMacMenu();
         } else {
             createTrayIcon();
