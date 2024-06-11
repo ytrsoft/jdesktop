@@ -1,13 +1,15 @@
 package com.ytrsoft.base;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.ytrsoft.components.icon.JDIcon;
 import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.menu.JDMenuBar;
 import com.ytrsoft.components.menu.JDTrayMenu;
 import com.ytrsoft.components.menu.MenuListener;
-import com.ytrsoft.util.LangUtils;
+import com.ytrsoft.util.ResUtils;
+import com.ytrsoft.util.SysUtils;
 import org.jdesktop.swingx.JXFrame;
 
 import javax.swing.*;
@@ -44,15 +46,17 @@ public class Application extends JXFrame implements MenuListener {
         setLocationRelativeTo(null);
         createTrayOrMenu();
         addWindowListener(new WindowClosing(this));
+        setDefaultLookAndFeelDecorated(true);
+        setDefaultLookAndFeelDecorated(true);
     }
 
     @Override
     public void click(String command) {
         try {
             if (Objects.equals(command, "Dark")) {
-                UIManager.setLookAndFeel(new FlatDarkLaf());
+                FlatDarkLaf.setup();
             } else {
-                UIManager.setLookAndFeel(new FlatLightLaf());
+                FlatLightLaf.setup();
             }
             SwingUtilities.updateComponentTreeUI(this);
         } catch (Exception e) {
@@ -60,9 +64,8 @@ public class Application extends JXFrame implements MenuListener {
         }
     }
 
-
     private void createTrayOrMenu() {
-        boolean isWin = LangUtils.isWin();
+        boolean isWin = SysUtils.isWin();
         if (!isWin) {
             createMacMenu();
         } else {
@@ -87,7 +90,7 @@ public class Application extends JXFrame implements MenuListener {
     }
 
     public Image getLogo() {
-        URL url = getClass().getResource("/logo.png");
+        URL url = ResUtils.getResource("/logo.png");
         return Toolkit.getDefaultToolkit().getImage(url);
     }
 
@@ -108,18 +111,28 @@ public class Application extends JXFrame implements MenuListener {
         return Toolkit.getDefaultToolkit().getScreenSize();
     }
 
+    private static void initSettings() {
+        URL customThemesURL = ResUtils.getResource("/themes/");
+        FlatLaf.registerCustomDefaultsSource(customThemesURL);
+        FlatDarkLaf.setup();
+        JDIconFont.register(JDIcon.getIconFont());
+    }
+
+    private static void createFrame(Class<? extends Application> clz) {
+        try {
+            Application app = clz.getDeclaredConstructor().newInstance();
+            app.init();
+            app.start();
+            app.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void launch(Class<? extends Application> clz) {
+        initSettings();
         SwingUtilities.invokeLater(() -> {
-            try {
-                FlatDarkLaf.setup();
-                JDIconFont.register(JDIcon.getIconFont());
-                Application app = clz.getDeclaredConstructor().newInstance();
-                app.init();
-                app.start();
-                app.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            createFrame(clz);
         });
     }
 

@@ -1,8 +1,8 @@
 package com.ytrsoft.util;
 
-public final class LangUtils {
+public final class SysUtils {
 
-    private LangUtils() {
+    private SysUtils() {
         throw new UnsupportedOperationException();
     }
 
