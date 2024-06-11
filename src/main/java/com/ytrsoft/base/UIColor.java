@@ -8,7 +8,7 @@ public class UIColor {
 
     private boolean isPlain;
 
-    private UseColor.Type type = UseColor.Type.DEFAULT;
+    private UseColor.Type type = UseColor.Type.PRIMARY;
 
     private Color m(Color c1, Color c2) {
         return isPlain ? c1 : c2;

@@ -28,16 +28,21 @@ public class ButtonDemo extends JDView {
             buttonView.setLayout(new FlowLayout(FlowLayout.LEFT));
             JDButton[] group = new JDButton[3];
             for (int j = 0; j < group.length; j++) {
-                group[j] = new JDButton("按钮");
-                group[j].setPreferredSize(new Dimension(100, 32));
+                UseColor.Type value = UseColor.Type.values()[i];
+                group[j] = new JDButton("BUTTON");
+                group[j].setPreferredSize(new Dimension(120, 32));
                 if (j == 2) {
                     group[j].setDisabled(true);
                 } else {
                     if (j == 1) {
                         group[j].setPlain(true);
                     }
-                    group[j].setType(UseColor.Type.values()[i]);
+                    group[j].setType(value);
                     group[j].setIcon(JDIcon.USER_CIRCLE_O);
+                    if (value == UseColor.Type.PRIMARY && j == 0) {
+                        group[j].setLoading(true);
+                        group[j].setText("LOADING");
+                    }
                 }
                 buttonView.add(group[j]);
             }
