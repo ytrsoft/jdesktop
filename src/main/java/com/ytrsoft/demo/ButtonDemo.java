@@ -1,4 +1,4 @@
-package com.ytrsoft.components.demo;
+package com.ytrsoft.demo;
 
 import com.ytrsoft.base.ColorType;
 import com.ytrsoft.components.button.JDButton;
@@ -6,7 +6,6 @@ import com.ytrsoft.components.icon.JDIcon;
 import com.ytrsoft.components.tabs.JDView;
 import com.ytrsoft.util.Settings;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
