@@ -9,7 +9,7 @@ import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.menu.BarMenuListener;
 import com.ytrsoft.components.menu.JDBarMenu;
 import com.ytrsoft.components.menu.JDTrayMenu;
-import com.ytrsoft.util.ResKit;
+import com.ytrsoft.util.Resource;
 import org.apache.commons.lang3.reflect.ConstructorUtils;
 
 import javax.swing.*;
@@ -66,13 +66,13 @@ public class Application extends JFrame implements BarMenuListener {
     }
 
     public Image getLogo() {
-        URL url = ResKit.getResource("/logo.png");
+        URL url = Resource.getResource("/logo.png");
         return TOOLKIT.getImage(url);
     }
 
     private static void prepareUI() {
         JDIconFont.register(JDIcon.getIconFont());
-        URL url = ResKit.getResource("/themes/");
+        URL url = Resource.getResource("/themes/");
         FlatLaf.registerCustomDefaultsSource(url);
         FlatDarkLaf.setup();
     }

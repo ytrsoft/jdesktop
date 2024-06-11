@@ -36,6 +36,11 @@
       <artifactId>commons-collections4</artifactId>
       <version>4.4</version>
     </dependency>
+    <dependency>
+      <groupId>com.formdev</groupId>
+      <artifactId>svgSalamander</artifactId>
+      <version>1.1.2.1</version>
+    </dependency>
   </dependencies>
 
   <build>

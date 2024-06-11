@@ -3,6 +3,7 @@ package com.ytrsoft.components.button;
 import com.ytrsoft.components.icon.JDIcon;
 import com.ytrsoft.components.icon.JDIconFont;
 import com.ytrsoft.components.icon.LoadingIcon;
+import com.ytrsoft.util.SVGIconLoader;
 
 import javax.swing.*;
 
@@ -15,6 +16,7 @@ public class JDButton extends JButton {
     public JDButton(String name) {
         super(name);
         buttonLoading = new LoadingIcon(getFontSize());
+        System.out.println(getFontSize());
     }
 
     private int getFontSize() {
@@ -23,6 +25,10 @@ public class JDButton extends JButton {
 
     public void setIcon(JDIcon icon) {
         setIcon(JDIconFont.buildIcon(icon, getFontSize()));
+    }
+
+    public void setIcon(String name) {
+        setIcon(SVGIconLoader.get(name, getFontSize()));
     }
 
     public boolean isLoading() {

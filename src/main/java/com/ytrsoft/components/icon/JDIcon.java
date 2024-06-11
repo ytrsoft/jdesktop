@@ -1,6 +1,6 @@
 package com.ytrsoft.components.icon;
 
-import com.ytrsoft.util.ResKit;
+import com.ytrsoft.util.Resource;
 
 import java.io.InputStream;
 
@@ -818,7 +818,7 @@ public enum JDIcon implements IconCode {
 
             @Override
             public InputStream getFontInputStream() {
-                return ResKit.getResourceAsStream("/fonts/fontawesome.ttf");
+                return Resource.getResourceAsStream("/fonts/fontawesome.ttf");
             }
         };
     }
