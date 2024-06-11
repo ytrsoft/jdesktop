@@ -21,7 +21,7 @@ public class Application extends JFrame implements BarMenuListener {
     private static final Toolkit TOOLKIT = Toolkit.getDefaultToolkit();
 
     public Application() {
-        setTitle("JDesktop");
+        setTitle("桌面应用");
         setIconImage(getLogo());
         setSize(getDefaultSize());
         setLocationRelativeTo(null);

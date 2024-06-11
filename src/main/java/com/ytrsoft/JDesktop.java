@@ -12,7 +12,7 @@ public class JDesktop extends Application {
 
     private Map<String, Component> tabs() {
         Map<String, Component> maps = new HashMap<>();
-        maps.put("Button", new ButtonDemo());
+        maps.put("按钮", new ButtonDemo());
         return maps;
     }
 
